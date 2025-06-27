@@ -1,2 +1,2 @@
-# ytem-droids-docker-manifest
-It contains docker compose files to run droids in different scenarios
+# yTem Droids Docker Manifest
+It contains docker compose files to run droids in different scenarios.

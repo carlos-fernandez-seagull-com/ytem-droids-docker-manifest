@@ -1,0 +1,197 @@
+version: "3.3"
+
+services:
+
+  inventory-droid-pern-dev04:
+    hostname: inventory-droid-pern-dev04
+    container_name: inventory-pern-cent-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=BAPIInventoryDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=PERNroot
+      - TARGET_PASSWORD=m0j1xInc!          
+      - GTIN=00884751413445
+      - SITE_CODE=424
+      - MSG_QTY=1
+      - MSG_EPC_QTY=2
+
+  receiving-droid-fala-dev04:
+    hostname: receiving-droid-fala-dev04
+    container_name: receiving-droid-fala-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=FALAroot
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=999999
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=00014671271577
+      - MSG_QTY=1
+      - MSG_EPC_QTY=2
+
+  commissioning-droid-fala-dev04:
+    hostname: commissioning-droid-fala-dev04
+    container_name: commissioning-droid-fala-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=FALAroot
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=999999
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:commissioning
+      - DISPOSITION=urn:epcglobal:cbv:disp:active
+      - EVENT_STATUS=in_progress
+      - GTIN=00014671271577
+      - MSG_QTY=200
+      - MSG_EPC_QTY=10
+
+  encoding-droid-fala-dev04:
+    hostname: encoding-droid-fala-dev04
+    container_name: encoding-droid-fala-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=FALAroot
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=999999
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:encoding
+      - DISPOSITION=urn:epcglobal:cbv:disp:encoded
+      - EVENT_STATUS=in_progress
+      - GTIN=00014671271577
+      - MSG_QTY=200
+      - MSG_EPC_QTY=10
+
+  packing-droid-fala-dev04:
+    hostname: packing-droid-fala-dev04
+    container_name: packing-droid-fala-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=FALAroot
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=999999
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:encoding
+      - DISPOSITION=urn:epcglobal:cbv:disp:encoded
+      - EVENT_STATUS=in_progress
+      - GTIN=00014671271577
+      - MSG_QTY=200
+      - MSG_EPC_QTY=10
+
+  packing-droid-cent-dev04:
+    hostname: packing-droid-cent-dev04
+    container_name: packing-droid-cent-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=CENTroot
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=0000012
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:packing
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=04549605042061
+      - MSG_QTY=50
+      - MSG_EPC_QTY=10            
+
+  referencelist-droid-fala:
+    hostname: referencelist-droid-fala
+    container_name: referencelist-droid-fala
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=ReferenceListDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=FALAeng
+      - TARGET_PASSWORD=m0j1xIncENG!      
+      - BIZLOCATION=999999                  
+      - GTIN=00014671271577
+      - MSG_QTY=2      
+
+  receiving-droid-cent-dev04:
+    hostname: receiving-droid-cent-dev04
+    container_name: receiving-droid-cent-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=CENTroot
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=0000209,0000024
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=00091201710089,00190078383249
+      - MSG_QTY=100
+      - MSG_EPC_QTY=5  
+
+  referencelist-droid-cent:
+    hostname: referencelist-droid-cent
+    container_name: referencelist-droid-cent
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=ReferenceListDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=CENTroot
+      - TARGET_PASSWORD=m0j1xInc!      
+      - BIZLOCATION=0000209
+      - DISPOSITION=urn:epcglobal:cbv:bizstep:packing                  
+      - GTIN=00091201710089
+      - MSG_QTY=5          
+
+  altametrics-droid-cent:
+    hostname: altametrics-droid-cent
+    container_name: altametrics-droid-cent
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=AltametricsDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=CENTroot
+      - TARGET_PASSWORD=m0j1xInc!      
+      - BIZLOCATION=0000209,0000247
+      - DISPOSITION=urn:epcglobal:cbv:bizstep:packing                  
+      - GTIN=00091201710089,00640135729126
+      - MSG_QTY=50   
+
+  inventory-droid-cent-dev04:
+    hostname: inventory-droid-cent-dev04
+    container_name: inventory-droid-cent-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=BAPIInventoryDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=CENTroot
+      - TARGET_PASSWORD=m0j1xInc!          
+      - GTIN=00091201710089,00190078382662
+      - SITE_CODE=0000209,0000254
+      - MSG_QTY=100
+      - MSG_EPC_QTY=10
+
+  foodlogiq-droid-chip-dev04:
+    hostname: foodlogiq-droid-chip-dev04
+    container_name: foodlogiq-droid-chip-dev04
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=FoodLogiQDroid
+      - TARGET_URL=https://dev-04.vizix.cloud
+      - TARGET_USERNAME=CHIProot
+      - TARGET_PASSWORD=m0j1xInc!   
+      - BIZLOCATION=urn:epc:id:sgln:08406621.9999.0       
+      - GTIN=80614141123458,00013400323006      
+      - MSG_QTY=50
+      - MSG_EPC_QTY=5
+
+  
+      

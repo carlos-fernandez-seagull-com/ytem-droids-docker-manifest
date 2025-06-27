@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  receiving-droid-mojixqa:
+    hostname: receiving-droid-mojixqa
+    container_name: receiving-droid-mojixqa
+    image: gcr.io/mojix-registry/ytem-droids:main
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://www.mojixretail.io
+      - TARGET_USERNAME=MOJIXQAeng
+      - TARGET_PASSWORD=m0j1xIncENG!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=urn:mjx:site:loc:MOJIXQA.00003.0
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=00088242400284
+      - MSG_QTY=1
+      - MSG_EPC_QTY=1
+
+  foodlogiq-droid-chip-yt1:
+    hostname: foodlogiq-droid-chip-yt1
+    container_name: foodlogiq-droid-chip-yt1
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=FoodLogiQDroid
+      - TARGET_URL=https://chipotle.mojixretail.io
+      - TARGET_USERNAME=CHIPeng
+      - TARGET_PASSWORD=m0j1xIncENG!   
+      - BIZLOCATION=urn:epc:id:sgln:08406621.9999.0
+      - GTIN=10711069009282
+      - MSG_QTY=10
+      - MSG_EPC_QTY=2

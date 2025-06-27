@@ -1,0 +1,112 @@
+version: "3.3"
+
+services:
+  receiving-droid-fala:
+    hostname: receiving-droid-fala
+    container_name: receiving-droid-fala
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://falabella.sandbox.ytem.io
+      - TARGET_USERNAME=FALAeng
+      - TARGET_PASSWORD=m0j1xIncENG!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=999999
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=00014671271577
+      - MSG_QTY=1
+      - MSG_EPC_QTY=1
+
+  referencelist-droid-fala:
+    hostname: referencelist-droid-fala
+    container_name: referencelist-droid-fala
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=ReferenceListDroid
+      - TARGET_URL=https://falabella.sandbox.ytem.io
+      - TARGET_USERNAME=FALAeng
+      - TARGET_PASSWORD=m0j1xIncENG!      
+      - BIZLOCATION=999999                  
+      - GTIN=00014671271577
+      - MSG_QTY=2  
+
+  referencelist-droid-jfresh:
+    hostname: referencelist-droid-jfresh
+    container_name: referencelist-droid-jfresh
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=ReferenceListDroid
+      - TARGET_URL=https://jfresh.sandbox.mojixretail.io
+      - TARGET_USERNAME=JFRESHeng
+      - TARGET_PASSWORD=m0j1xIncENG!      
+      - BIZLOCATION=urn:mjx:site:loc:JFRESH.00017.0
+      - DISPOSITION=urn:epcglobal:cbv:bizstep:packing                  
+      - GTIN=00057846767390
+      - MSG_QTY=2       
+
+  receiving-droid-jfresh:
+    hostname: receiving-droid-jfresh
+    container_name: receiving-droid-jfresh
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://jfresh.sandbox.mojixretail.io
+      - TARGET_USERNAME=JFRESHeng
+      - TARGET_PASSWORD=m0j1xIncENG!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=urn:mjx:site:loc:JFRESH.00017.0
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=00057846767390
+      - MSG_QTY=5
+      - MSG_EPC_QTY=3           
+
+  inventory-droid-jfresh:
+    hostname: inventory-droid-jfresh
+    container_name: inventory-droid-jfresh
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=BAPIInventoryDroid
+      - TARGET_URL=https://jfresh.sandbox.mojixretail.io
+      - TARGET_USERNAME=JFRESHeng
+      - TARGET_PASSWORD=m0j1xIncENG!    
+      - BIZLOCATION=urn:mjx:site:loc:JFRESH.00017.0
+      - GTIN=00057846767390
+      - SITE_CODE=9999991  
+      - MSG_QTY=10
+      - MSG_EPC_QTY=2    
+
+  inventory-droid-chip-sb:
+    hostname: inventory-droid-chip
+    container_name: inventory-droid-chip
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=BAPIInventoryDroid
+      - TARGET_URL=https://chipotle.sandbox.mojixretail.io
+      - TARGET_USERNAME=CHIPeng
+      - TARGET_PASSWORD=m0j1xIncENG!    
+      - BIZLOCATION=urn:epc:id:sgln:08406621.9999.0
+      - GTIN=00761010409367
+      - SITE_CODE=0840662199991  
+      - MSG_QTY=10
+      - MSG_EPC_QTY=5
+
+  foodlogiq-droid-chip-sb:
+    hostname: foodlogiq-droid-chip-sb
+    container_name: foodlogiq-droid-chip-sb
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=FoodLogiQDroid
+      - TARGET_URL=https://chipotle.sandbox.mojixretail.io
+      - TARGET_USERNAME=CHIPeng
+      - TARGET_PASSWORD=m0j1xIncENG!   
+      - BIZLOCATION=urn:epc:id:sgln:08406621.9999.0       
+      - GTIN=00013941004280      
+      - MSG_QTY=10
+      - MSG_EPC_QTY=5
+      - INCLUDE_LOTNUMBER=false               
+
+

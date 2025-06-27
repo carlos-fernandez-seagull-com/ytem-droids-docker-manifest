@@ -1,0 +1,82 @@
+version: "3.3"
+
+services:
+
+  foodlogiq-droid-chip-qat1:
+    hostname: foodlogiq-droid-chip-qat1
+    container_name: foodlogiq-droid-chip-qat1
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=FoodLogiQDroid
+      - TARGET_URL=https://qa-chip.vizix.cloud
+      - TARGET_USERNAME=CHIPeng
+      - TARGET_PASSWORD=m0j1xInc!
+      - BIZLOCATION=urn:epc:id:sgln:08406621.9999.0       
+      - GTIN=10678183620017,00624256030125
+      - MSG_QTY=10
+      - MSG_EPC_QTY=5
+
+  receiving-droid-cent-qat1:
+    hostname: receiving-droid-cent-qat1
+    container_name: receiving-droid-cent-qat1
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://qa-cent.vizix.cloud
+      - TARGET_USERNAME=CENTadmin
+      - TARGET_PASSWORD=m0j1xInc!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=0000209
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=00091201710089
+      - MSG_QTY=1
+      - MSG_EPC_QTY=5
+
+  inventory-droid-cent-qat1:
+    hostname: inventory-droid-cent-qat1
+    container_name: inventory-droid-cent-qat1
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=BAPIInventoryDroid
+      - TARGET_URL=https://qa-cent.vizix.cloud
+      - TARGET_USERNAME=CENTeng
+      - TARGET_PASSWORD=m0j1xIncENGQA!          
+      - GTIN=00091201710089,00190078382662
+      - SITE_CODE=0000209,0000254
+      - MSG_QTY=1
+      - MSG_EPC_QTY=2
+
+  referencelist-droid-cent-qat1:
+    hostname: referencelist-droid-jfresh
+    container_name: referencelist-droid-jfresh
+    image: gcr.io/mojix-registry/ytem-tools-droids:main
+    environment:
+      - NAME=ReferenceListDroid
+      - TARGET_URL=https://qa-cent.vizix.cloud
+      - TARGET_USERNAME=CENTeng
+      - TARGET_PASSWORD=m0j1xIncENGQA!
+      - BIZLOCATION=0000209
+      - DISPOSITION=urn:epcglobal:cbv:bizstep:packing                  
+      - GTIN=00091201710089
+      - MSG_QTY=20
+
+  receiving-droid-chip-qat1:
+    hostname: receiving-droid-chip-qat1
+    container_name: receiving-droid-chip-qat1
+    image: gcr.io/mojix-registry/ytem-tools-droids:dev_1.x.x
+    environment:
+      - NAME=EventDroid
+      - TARGET_URL=https://qa-chip.vizix.cloud
+      - TARGET_USERNAME=CHIPeng
+      - TARGET_PASSWORD=m0j1xIncENGQA!
+      - EVENT_TYPE=ObjectEvent
+      - BIZLOCATION=urn:epc:id:sgln:08406621.9999.0
+      - BIZSTEP=urn:epcglobal:cbv:bizstep:receiving
+      - DISPOSITION=urn:epcglobal:cbv:disp:sellable_not_accessible
+      - EVENT_STATUS=in_progress
+      - GTIN=10678183620024
+      - MSG_QTY=1
+      - MSG_EPC_QTY=5
+      
